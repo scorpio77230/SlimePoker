@@ -1,26 +1,40 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <the-nav></the-nav>
+  <the-body></the-body>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+@font-face {
+  font-family: "cwTeXHei";
+  font-style: normal;
+  font-weight: 500;
+  src: url(https://fonts.gstatic.com/ea/cwtexhei/v3/cwTeXHei-zhonly.eot);
+  src: url(https://fonts.gstatic.com/ea/cwtexhei/v3/cwTeXHei-zhonly.eot?#iefix)
+      format("embedded-opentype"),
+    url(https://fonts.gstatic.com/ea/cwtexhei/v3/cwTeXHei-zhonly.woff2)
+      format("woff2"),
+    url(https://fonts.gstatic.com/ea/cwtexhei/v3/cwTeXHei-zhonly.woff)
+      format("woff"),
+    url(https://fonts.gstatic.com/ea/cwtexhei/v3/cwTeXHei-zhonly.ttf)
+      format("truetype");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "cwTeXHei", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
 }
 </style>
