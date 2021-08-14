@@ -1,5 +1,5 @@
 {
-  "name": "rpg",
+  "name": "SlimePoker",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,6 +7,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
+  "homepage": "https://scorpio77230.github.io/SlimePoker/",
   "dependencies": {
     "core-js": "^3.6.5",
     "vue": "^3.0.0"

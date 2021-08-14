@@ -13,7 +13,8 @@
     <p>藥水：喝一口肥宅快樂水，回復失去生命的約33%生命值，<br>有機會回復雙倍數值，冷卻2回合</p>
     <p>投降：大喊一聲「我就爛!」 放棄遊戲</p>
     <p>史萊姆攻擊：有時候很痛有時候會失誤</p>
-    <p>作者：Edwin Huang</p>
+    <h6>作者：Edwin Huang<br>20210814 v.1</h6>
+    <h6></h6>
   </div>
   </the-dialog>
   <header>
@@ -64,5 +65,14 @@ img {
   width: 80px;
   cursor: pointer;
   transform: scaleX(-1);
+}
+@media (max-width: 767px) {
+  header {
+    position: fixed;
+  }
+  img{
+    margin: 5px;
+    width: 60px;
+  }
 }
 </style>

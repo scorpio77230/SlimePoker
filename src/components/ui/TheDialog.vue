@@ -1,11 +1,10 @@
 <template>
   <teleport to="body">
-    <div v-if="show" @click="tryClose" class="backdrop">
-    </div>
+    <div v-if="show" @click="tryClose" class="backdrop"></div>
     <transition name="dialog">
       <dialog open v-if="show">
         <header>
-        <!-- <div class="x-button" @click="tryClose">&#8281;</div> -->
+          <!-- <div class="x-button" @click="tryClose">&#8281;</div> -->
           <slot name="header">
             <h1>{{ title }}</h1>
           </slot>
@@ -51,7 +50,6 @@ export default {
 </script>
 
 <style scoped>
-
 .backdrop {
   position: fixed;
   top: 0;
@@ -75,7 +73,7 @@ dialog {
   padding: 0;
   margin: 0;
   overflow: hidden;
-  background-color: white;
+  background-color: #d0c4ac;
   text-align: center;
   display: flex;
   justify-content: space-between;
@@ -85,7 +83,7 @@ dialog {
 
 header {
   font-family: inherit;
-  background-color: #a5a5a5;
+  background-color: #a2998f;
   color: white;
   width: 100%;
   padding: 1rem;
@@ -96,11 +94,11 @@ header h1 {
 }
 
 section {
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 menu {
-  padding: 1rem;
+  padding: 0.5rem;
   display: flex;
   justify-content: center;
   margin: 0;
@@ -135,6 +133,18 @@ button {
   dialog {
     left: calc(50% - 20rem);
     width: 40rem;
+  }
+}
+@media (max-width: 767px) {
+  dialog {
+    left: 5%;
+    width: 90%;
+    height: 60vh;
+  }
+  button {
+    width: 40vw;
+    height: 7vh;
+    font-size: 1rem;
   }
 }
 </style>

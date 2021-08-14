@@ -29,7 +29,7 @@
     game="在玩一次"
     @close="closeDialog"
   >
-    <p class="dialogfont">好棒!<br>你成功打敗了一隻藍色的史萊姆!</p>
+    <p class="dialogfont">好棒!<br />你成功打敗了一隻藍色的史萊姆!</p>
   </the-dialog>
   <the-dialog
     :show="winner === 'monster'"
@@ -37,7 +37,7 @@
     game="在玩一次"
     @close="closeDialog"
   >
-    <p class="dialogfont">沒事的!不要難過!<br>不過是輸給一隻史萊姆嘛!</p>
+    <p class="dialogfont">沒事的!不要難過!<br />不過是輸給一隻史萊姆嘛!</p>
   </the-dialog>
   <section>
     <div class="main">
@@ -84,7 +84,7 @@
             alt=""
             class="buttontitle"
           />
-          <p class="CD" v-if="healCoolDown !== 0">{{ healCoolDown }}</p>
+          <span class="CD" v-if="healCoolDown !== 0">{{ healCoolDown }}</span>
         </action-button>
         <action-button :disabled="specialAttackRound" @click="specialAttack">
           <img
@@ -93,7 +93,7 @@
             class="buttonicon"
           />
           <img src="../assets/button/skills.png" alt="" class="buttontitle" />
-          <p class="CD" v-if="skillCoolDown !== 0">{{ skillCoolDown }}</p>
+          <span class="CD" v-if="skillCoolDown !== 0">{{ skillCoolDown }}</span>
         </action-button>
         <action-button @click="surrender"
           ><img
@@ -109,7 +109,7 @@
         <h3>戰鬥紀錄</h3>
         <div class="logcontent">
           <ul>
-            <!-- <li>細節最後補(1.美化2.按鈕hover跑細節)</li> -->
+            <!-- <li>!!史萊姆圖片偏大可以在小一點，口水可能更亮一點!!(1.美化2.手機排版)</li> -->
             <li v-for="logMessage in logMessages" :key="logMessage">
               <hr />
               {{ logMessage.round }}
@@ -298,20 +298,20 @@ section {
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  background-color: #999;
+  background-color: #a2998f;
   width: 100vw;
   /* min-width: 800px; */
   min-height: 100vh;
   overflow-x: hidden;
 }
 .main {
-  background-color: #ccc;
+  background-color: #d0c4ac;
   width: 70vw;
   height: 70vh;
   max-height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 p {
   margin: 0;
@@ -346,34 +346,48 @@ p {
 }
 .healthbar {
   height: 40px;
-  border: 1px solid #575757;
+  border: 1px solid #d0c4ac;
   margin: 1rem 0 0 0;
-  background: #fde5e5;
+  background: #8d929d;
 }
 #enemy .healthbar {
-  width: 80%;
+  width: 55vw;
 }
 #enemy .healthbar_value {
-  background-color: #00a876;
+  background-color: #4f4a4b;
   width: 100%;
   height: 100%;
+  color: #ddd;
+}
+#enemy p {
+  color: #33292b;
+}
+#player {
+  margin-bottom: calc(0.5rem + 0.4vw);
 }
 #player .healthbar {
   margin: 0.5rem 0 0 1.2rem;
-  width: 20%;
+  width: 15vw;
 }
 #player .healthbar_value {
-  background-color: #00a876;
+  background-color: #4f4a4b;
   width: 100%;
   height: 100%;
+  color: #ddd;
 }
 #player h3 {
   text-align: start;
   margin: 0 0 0 1.2rem;
+  color: #33292b;
+}
+.imgbox {
+  width: 20vw;
+  height: 20vw;
+  border-radius: 50%;
 }
 .imgbox img {
-  width: calc(200px + 10vw);
-  margin-top: 2vh;
+  width: 20vw;
+  margin-top: 1rem;
 }
 
 .interface {
@@ -382,7 +396,7 @@ p {
   display: flex;
   justify-content: stretch;
   align-content: space-around;
-  background-color: #ccc;
+  background-color: #d0c4ac;
 }
 .actionbuttons {
   width: 40vw;
@@ -414,9 +428,11 @@ p {
   border-radius: 1em;
   width: 30vw;
   text-align: center;
+  box-shadow: 5px 5px 9px 2px rgba(79, 74, 75, 0.3);
 }
 #log h3 {
-  margin: 0 0 0.5rem 0;
+  color: #33292b;
+  margin: 5px 0 0.5rem 0;
 }
 .logcontent {
   height: 23vh;
@@ -426,10 +442,10 @@ p {
   width: 5px;
 }
 ::-webkit-scrollbar-thumb {
-  background: red;
+  background: #4f4a4b;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #b30000;
+  background: #33292b;
 }
 ul {
   list-style: none;
@@ -438,5 +454,112 @@ ul {
 }
 li {
   margin: 0.5rem;
+}
+@media (max-width: 767px) {
+  .namefield {
+    width: 80vw;
+    height: 8vh;
+    font-size: 1.3rem;
+  }
+  .dialogfont {
+    font-size: 24px;
+  }
+  .main {
+    width: 90vw;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  #enemy {
+    flex-direction: column-reverse;
+  }
+  .healthbar {
+    height: 2rem;
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  .healthbar_value {
+    line-height: 2rem;
+  }
+  #enemy .healthbar {
+    width: 70vw;
+  }
+
+  #enemy p {
+    font-size: 1.2rem;
+  }
+  .imgbox {
+    width: 60vw;
+    height: 60vw;
+    margin-bottom: 1rem;
+  }
+  .imgbox img {
+    width: 60vw;
+  }
+
+  #player {
+    display: flex;
+    justify-content: center;
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-bottom: calc(0.5rem + 0.4vw);
+  }
+  #player .healthbar {
+    width: 70vw;
+    margin: 0;
+  }
+
+  #player h3 {
+    margin: 0;
+  }
+
+  .interface {
+    width: 90vw;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .actionbuttons {
+    width: 80vw;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 0;
+    margin-bottom: 0.5rem;
+  }
+  .actionbuttons button {
+    width: 18vw;
+    height: 8vh;
+    justify-content: center;
+    align-items: center;
+  }
+  .actionbuttons .buttonicon {
+    width: 6vw;
+    display: none;
+  }
+  .actionbuttons .buttontitle {
+    width: 17vw;
+  }
+  .CD {
+    position: relative;
+    top: -30%;
+    left: -20%;
+  }
+  #log {
+    margin: 1rem 0;
+    width: 80vw;
+  }
+  #log h3 {
+    margin: 0.5rem 0;
+  }
+  .logcontent {
+    height: 23vh;
+  }
+  li {
+    font-size: 0.8em;
+  }
 }
 </style>
