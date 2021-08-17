@@ -1,24 +1,5 @@
-# rpg
+# SlimePoker Game
 
-## Project setup
-```
-npm install
-```
+##Visit the link below to play!
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### https://scorpio77230.github.io/SlimePoker/
